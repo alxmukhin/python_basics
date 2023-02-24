@@ -11,5 +11,5 @@ n + nn + nnn = 369
 n = input("Введите целое положительное число n: ")
 nn = n + n
 nnn = n + n + n
-summa = int(nnn) + int(nn) + int(n)
-print('Сумма nnn + nn + n равна: {}'.format(summa))
+total = int(nnn) + int(nn) + int(n)
+print('Сумма nnn + nn + n равна: {}'.format(total))
