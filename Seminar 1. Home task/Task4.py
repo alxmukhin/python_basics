@@ -21,10 +21,15 @@
 revenue = int(input("Введите выручку фирмы: "))
 cost = int(input("Введите издержки фирмы: "))
 income = revenue - cost
-profitability = income / cost
-print('Прибыль фирмы равна: {:.2f}'.format(income))
-print('Рентабельность выручки равна: {:.2%}'.format(profitability))
-employees = int(input("Введите число сотрудников: "))
-income_per_employee = income / employees
-print('Прибыль в рассчете на сотрудника равна: {:.2f}'.format(
-    income_per_employee))
+if income >= 0:
+    print("Фирма работает с прибылью")
+    print('Прибыль фирмы равна: {:.2f}'.format(income))
+    profitability = income / cost
+    print('Рентабельность выручки равна: {:.2%}'.format(profitability))
+    employees = int(input("Введите число сотрудников: "))
+    income_per_employee = income / employees
+    print('Прибыль в рассчете на сотрудника равна: {:.2f}'.format(
+        income_per_employee))
+else:
+    print("Фирма работает в убыток")
+    print('Убыток фирмы равен: {:.2f}'.format(income))
