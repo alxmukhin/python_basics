@@ -29,3 +29,44 @@
 }
 """
 
+dict_default = {
+    "название": None,
+    "цена": None,
+    "количество": None,
+    "ед.": None
+}
+number_of_goods = int(input("Укажите количество товаров которое вы хотите"
+                            " занести в базу: "))
+database_structure = []
+i = 0
+while i < number_of_goods:
+    dict_base = dict_default.copy()
+    dict_base["название"] = input("Введите название изделия: ")
+    dict_base["цена"] = int(input("Введите цену изделия: "))
+    dict_base["количество"] = int(input("Введите количество изделий: "))
+    dict_base["ед."] = input("Введите единицу измерения изделия: ")
+    structure_row = (i, dict_base)
+    database_structure.append(structure_row)
+    i += 1
+for i in database_structure:
+    print(i)
+names = []
+prices = []
+quantities = []
+measurement_items = []
+i = 0
+while i < number_of_goods:
+    dict_tem_1 = database_structure[i]
+    dict_temp_2 = dict_tem_1[1]
+    names.append(dict_temp_2["название"])
+    prices.append(dict_temp_2["цена"])
+    quantities.append(dict_temp_2["количество"])
+    measurement_items.append(dict_temp_2["ед."])
+    i += 1
+dict_database = dict_default.copy()
+dict_database["название"] = names
+dict_database["цена"] = prices
+dict_database["количество"] = quantities
+dict_database["ед."] = measurement_items
+for i in dict_database:
+    print(f"{i}: {dict_database.get(i)}")
