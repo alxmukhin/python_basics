@@ -16,3 +16,16 @@
 Набор натуральных чисел можно задать непосредственно в коде,
 например, my_list = [7, 5, 3, 3, 2].
 """
+
+rating_list = [7, 5, 3, 3, 2]
+print(rating_list)
+new_element = int(input("Введите новый элемент: "))
+min_value = len(rating_list) - 1
+if new_element <= rating_list[min_value]:
+    rating_list.append(new_element)
+else:
+    for i in rating_list:
+        if new_element > i:
+            rating_list.insert(rating_list.index(i), new_element)
+            break
+print(rating_list)
