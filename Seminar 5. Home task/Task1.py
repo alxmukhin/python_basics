@@ -24,3 +24,35 @@
 Вы вместо трехзначного числа ввели строку (((. Исправьтесь
 Введите операцию (+, -, *, / или 0 для выхода):
 """
+
+
+def operation():
+    a = int(input("Введите число A: "))
+    b = int(input("Введите число B: "))
+    operator = input("Введите число тип операции которую необходимо произвести"
+                     " с числами А и B (+, -, *, / или 0 для выхода из"
+                     " программы): ")
+    operators = ["+", "-", "*", "/", "0"]
+    if operator not in operators:
+        print("Введено неправильное обозначение операции!")
+        return
+    if operator == "+":
+        result = a + b
+    elif operator == "-":
+        result = a - b
+    elif operator == "*":
+        result = a * b
+    elif operator == "/":
+        if b == 0:
+            print("Делить на ноль нельзя!")
+            return
+        else:
+            result = a / b
+    elif operator == "0":
+        return
+
+    print(f"Результат операции: {a} {operator} {b} = {result}")
+    operation()
+
+
+operation()
