@@ -16,3 +16,18 @@
 Не забудьте проверить на числе, которое оканчивается на 0.
 1230 -> 0321
 """
+
+
+def reverse(n, reverse_number=""):
+    rest = n % 10
+    new_n = n // 10
+    if new_n == 0 and rest == 0:
+        print(f"Число, обратное введенному по порядку цифр: {reverse_number}")
+        return
+    else:
+        reverse_number = reverse_number + str(rest)
+    reverse(new_n, reverse_number)
+
+
+number = int(input("Введите число: "))
+reverse(number)
