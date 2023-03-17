@@ -15,3 +15,29 @@ running (запуск).
 
 Проверить работу примера, создав экземпляр и вызвав описанный метод.
 """
+
+import time
+
+
+class TrafficLight:
+    def __init__(self, color):
+        self.__color = color
+
+    def running(self):
+        while True:
+            if self.__color == "red":
+                print("Красный свет")
+                time.sleep(7)
+                self.__color = "yellow"
+            elif self.__color == "yellow":
+                print("Желтый свет")
+                time.sleep(2)
+                self.__color = "green"
+            elif self.__color == "green":
+                print("Зелёный свет")
+                time.sleep(14)
+                self.__color = "red"
+
+
+trafficlight1 = TrafficLight("red")
+trafficlight1.running()
