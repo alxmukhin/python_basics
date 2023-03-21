@@ -23,3 +23,20 @@
 и достучаться до списка, который и нужно пополнять
 а потом сохранять все в файл
 """
+
+import json
+
+
+def write_order_to_json(item, quantity, price, buyer, date):
+    new_order = {
+        "item": item,
+        "quantity": quantity,
+        "price": price,
+        "buyer": buyer,
+        "date": date
+    }
+    with open("orders.json", "a") as f_n:
+        json.dump(new_order, f_n, indent=4)
+
+
+write_order_to_json("Computer", 1, 67500, "Ivan Petrov", "21.03.2023")
