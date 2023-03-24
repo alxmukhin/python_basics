@@ -21,24 +21,18 @@ ASCII(например, €);
 
 import yaml
 
-data = {
-    "Список": [4, 8, 12],
-    "Целое число": 525,
-    "Словарь": {
-        "Euro": "€",
-        "Omega": "Ω",
-        "Copyright": "©"
-    }
-}
+list_data = [4, 8, 12]
+dict_data = {"1": "2460", "2": "2475"}
+upload_data = {"List": list_data, "Integer": 525, "Dictionary": dict_data}
 
 with open("file.yaml", "w") as f_n:
-    yaml.dump(data, f_n, default_flow_style=False, allow_unicode=True)
+    yaml.dump(upload_data, f_n, default_flow_style=False, allow_unicode=True)
 
 with open("file.yaml") as f:
-    loaded_data = yaml.load(f, Loader=yaml.FullLoader)
-    print(loaded_data)
+    download_data = yaml.load(f, Loader=yaml.FullLoader)
+    print(download_data)
 
-if data == loaded_data:
+if upload_data == download_data:
     print("Cовпадают")
 else:
     print("Не совпадают")
