@@ -1,11 +1,4 @@
-items:
-- computer
-- printer
-- keyboard
-- mouse
-items_ptice:
-  computer: 200â‚¬-1000â‚¬
-  keyboard: 5â‚¬-50â‚¬
-  mouse: 4â‚¬-7â‚¬
-  printer: 100â‚¬-300â‚¬
-items_quantity: 4
+Ñëîâàğü:
+  Copyright: ©
+  Euro: ˆ
+  Omega: 

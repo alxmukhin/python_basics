@@ -18,3 +18,27 @@ ASCII(например, €);
 Реализовать считывание данных из созданного файла и проверить,
 совпадают ли они с исходными.
 """
+
+import yaml
+
+data = {
+    "Список": [4, 8, 12],
+    "Целое число": 525,
+    "Словарь": {
+        "Euro": "€",
+        "Omega": "Ω",
+        "Copyright": "©"
+    }
+}
+
+with open("file.yaml", "w") as f_n:
+    yaml.dump(data, f_n, default_flow_style=False, allow_unicode=True)
+
+with open("file.yaml") as f:
+    loaded_data = yaml.load(f, Loader=yaml.FullLoader)
+    print(loaded_data)
+
+if data == loaded_data:
+    print("Cовпадают")
+else:
+    print("Не совпадают")
