@@ -9,3 +9,8 @@
 --- b'class' - используйте маркировку b''
 --- используйте списки и циклы, не дублируйте функции
 """
+
+data_list = [b"class", b"function", b"method"]
+for i in range(len(data_list)):
+    print(f"Значение переменной: {data_list[i]}, тип данных:"
+          f" {type(data_list[i])}, длина: {len(data_list[i])}")
