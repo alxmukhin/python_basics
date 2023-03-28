@@ -15,3 +15,15 @@
 кодовых точек
 --- используйте списки и циклы, не дублируйте функции
 """
+
+data_list = ["разработка", "сокет", "декоратор"]
+data_list_unicode = []
+for i in range(len(data_list)):
+    data_list_unicode.append(data_list[i].encode('unicode_escape').decode())
+for i in range(len(data_list)):
+    print()
+    print(f"Значение {i + 1}-й переменной в буквенном формате:"
+          f" {data_list[i]}, тип - {type(data_list[i])}")
+    print(f"Значение {i + 1}-й переменной в формате кодовых точек:"
+          f" {data_list_unicode[i]}, тип - {type(data_list_unicode[i])}")
+    i += 1

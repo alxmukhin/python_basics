@@ -9,3 +9,13 @@ decode).
 --- обязательно!!! усложните задачу, "отловив" исключение,
 придумайте как это сделать
 """
+
+data_list = ["attribute", "класс", "функция", "type"]
+for i in range(len(data_list)):
+    try:
+        word_ascii = bytes(data_list[i], "ascii")
+        print(f"Слово {data_list[i]} может быть записано в байтовом формате "
+              f"с помощью маркировки b''")
+    except UnicodeEncodeError:
+        print(f"Слово {data_list[i]} не может быть записано в байтовом формате"
+              f" с помощью маркировки b''")
