@@ -37,6 +37,46 @@ os_code_list, os_type_list. В этой же функции создать гл�
 ПРОШУ ВАС НЕ УДАЛЯТЬ СЛУЖЕБНЫЕ ФАЙЛЫ TXT И ИТОГОВЫЙ ФАЙЛ CSV!!!
 """
 
+import os
+import csv
+import re
 
-os_prod_reg = re.compile(r'Изготовитель системы:\s*\S*')
-os_prod_list.append(os_prod_reg.findall(data)[0].split()[2])
+
+def get_data():
+    os_prod_list = []
+    os_name_list = []
+    os_code_list = []
+    os_type_list = []
+
+    main_data = [["Изготовитель системы", "Название ОС", "Код продукта",
+                 "Тип системы"]]
+
+    files = os.listdir(path=".")
+    for filename in files:
+        if filename.endswith(".txt"):
+            working_file = os.path.join(filename)
+            with open(working_file, "r") as f_n:
+                data = f_n.read()
+                os_prod = ''.join(re.findall(r'Изготовитель системы:\s*(.*)', data))
+                os_prod_list.append(os_prod)
+                os_name = ''.join(re.findall(r'Название ОС:\s*(.*)', data))
+                os_name_list.append(os_name)
+                os_code = ''.join(re.findall(r'Код продукта:\s*(.*)', data))
+                os_code_list.append(os_code)
+                os_type = ''.join(re.findall(r'Тип системы:\s*(.*)', data))
+                os_type_list.append(os_type)
+                row = [os_prod, os_name, os_code, os_type]
+                main_data.append(row)
+    return main_data
+
+
+def write_to_csv(csv_file_name):
+    data = get_data()
+    with open(csv_file_name, 'w', newline='') as f_n:
+        writer = csv.writer(f_n)
+        writer.writerows(data)
+
+
+write_to_csv("data_report.csv")
+
+Name = 1

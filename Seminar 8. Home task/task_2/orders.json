@@ -29,4 +29,10 @@
             "date": "11.01.2018"
         }
     ]
+}{
+    "item": "Computer",
+    "quantity": 1,
+    "price": 67500,
+    "buyer": "Ivan Petrov",
+    "date": "21.03.2023"
 }
